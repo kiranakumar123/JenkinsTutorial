@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="seleniumcookbook.examples.test.GoogleSearchTest" duration-ms="18538" started-at="2016-05-26T10:01:23Z" finished-at="2016-05-26T10:01:41Z">
+    <groups>
+    </groups>
+    <test name="Command line test" duration-ms="18538" started-at="2016-05-26T10:01:23Z" finished-at="2016-05-26T10:01:41Z">
+      <class name="seleniumcookbook.examples.test.GoogleSearchTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:seleniumcookbook.examples.test.GoogleSearchTest@2f7a2457]" name="setUp" is-config="true" duration-ms="15084" started-at="2016-05-26T15:31:23Z" finished-at="2016-05-26T15:31:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="testGoogleSearch()[pri:0, instance:seleniumcookbook.examples.test.GoogleSearchTest@2f7a2457]" name="testGoogleSearch" duration-ms="2877" started-at="2016-05-26T15:31:38Z" finished-at="2016-05-26T15:31:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGoogleSearch -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:seleniumcookbook.examples.test.GoogleSearchTest@2f7a2457]" name="tearDown" is-config="true" duration-ms="564" started-at="2016-05-26T15:31:40Z" finished-at="2016-05-26T15:31:41Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- seleniumcookbook.examples.test.GoogleSearchTest -->
+    </test> <!-- Command line test -->
+  </suite> <!-- seleniumcookbook.examples.test.GoogleSearchTest -->
+</testng-results>
