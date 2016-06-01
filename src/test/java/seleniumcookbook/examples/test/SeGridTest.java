@@ -22,7 +22,7 @@ public class SeGridTest
 	//@Parameters({ "platform","browser","version", "url" })
 	@Parameters({ "platform","browser", "url" })
 	@BeforeTest(alwaysRun=true)
-	public void setup(String platform, String browser, String  version, String url) throws MalformedURLException
+	public void setup(String platform, String browser, String url) throws MalformedURLException
 	{
 		DesiredCapabilities caps = new DesiredCapabilities();
 		//Platforms
