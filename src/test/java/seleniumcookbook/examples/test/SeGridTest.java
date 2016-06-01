@@ -19,7 +19,8 @@ public class SeGridTest
 	WebDriver driver = null;
 	private StringBuffer verificationErrors = new StringBuffer();
 
-	@Parameters({ "platform","browser","version", "url" })
+	//@Parameters({ "platform","browser","version", "url" })
+	@Parameters({ "platform","browser", "url" })
 	@BeforeTest(alwaysRun=true)
 	public void setup(String platform, String browser, String  version, String url) throws MalformedURLException
 	{
@@ -39,7 +40,7 @@ public class SeGridTest
 		if(browser.equalsIgnoreCase("Android"))
 			caps = DesiredCapabilities.android();
 		//Version
-		caps.setVersion(version);
+		//caps.setVersion(version);
 //		driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), caps);		// Open the BMI Calculator Application
 driver = new RemoteWebDriver(new URL("http://127.0.0.1:5555/wd/hub"), caps);
 		driver.get(url);
