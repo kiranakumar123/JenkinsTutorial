@@ -42,7 +42,7 @@ public class SeGridTest
 		//Version
 		//caps.setVersion(version);
 //		driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), caps);		// Open the BMI Calculator Application
-driver = new RemoteWebDriver(new URL("http://127.0.0.1:5555/wd/hub"), caps);
+driver = new RemoteWebDriver(new URL("http://104.199.155.110:5555/wd/hub"), caps);
 		driver.get(url);
 	}
 
