@@ -119,7 +119,7 @@
 			<class name="seleniumcookbook.examples.test.SeGridTest"></class>
 		</classes>
 	</test>
-<<test name="testIE">
+<test name="testIE">
 <!--		<parameter name="browser" value="IE"></parameter>-->
 		<parameter name="platform"  value="Windows" />
 		<parameter name="browser" value="Internet Explorer" />
