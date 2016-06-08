@@ -120,13 +120,13 @@
 			<class name="seleniumcookbook.examples.test.SeGridTest"></class>
 		</classes>
 	</test>
-<!--<test name="testIE">-->
+<test name="testIE">
 <!--		<parameter name="browser" value="IE"></parameter>-->
-<!--		<parameter name="platform"  value="Windows" />
+		<parameter name="platform"  value="Windows" />
 		<parameter name="browser" value="Internet Explorer" />
 		<parameter name="url" value="http://dl.dropbox.com/u/55228056/bmicalculator.html"/>
                 <classes>
                         <class name="seleniumcookbook.examples.test.SeGridTest"></class>
                 </classes>
-	</test>-->
+	</test>
 </suite>
