@@ -1,0 +1,158 @@
+<project name="AUPSchedulerAutomation" basedir="." default="all">
+
+	<property environment="env" />
+	
+    <echo message="ANT_HOME is set to = ${env.ANT_HOME}"/>
+	<echo message="JAVA_HOME is set to = ${env.JAVA_HOME}"/>
+	<echo message="SELENIUM_REPORTS_HOME is set to = ${env.SELENIUM_REPORTS_HOME}"/>
+	
+	<property name="src" location="src"/>
+	<property name="dist" location="dist"/>
+	<property name="lib" location="lib"/>
+	<property name="build" location="build"/>
+	<property name="config" location="config"/>
+	<property name="testng.templates" location="config/testng.templates"/>
+	<property name="src" location="src"/>
+	<property name="tmp" location="tmp"/>
+	<property name="reports" location="${env.SELENIUM_REPORTS_HOME}/reports"/>
+	<!--<property name="reports" location="reports"/>-->
+	
+	<property file="build.properties"/>
+	  
+	<tstamp>
+		<!--<format property="TODAY_GB" pattern="d-MMMM-yyyy" locale="en,GB"/>-->
+		<format property="year" pattern="yyyy" />
+		<format property="DSTAMP" pattern="yyyy-MM-dd" />
+		<format property="TSTAMP" pattern="HH:mm:ss" />
+		<format property="dateversion" pattern="yyyy.MM.dd.HH:mm:ss" />
+		<format property="time.stamp" pattern="yyyy-MM-dd_HH-mm-ss aa_"/>
+	</tstamp>
+	
+	 <!-- ====== For setting the classpath ==== -->
+	 <target name="setClassPath" unless="test.classpath">
+		<path id="classpath_jars">
+			<fileset dir="$lib}" includes = "*.jar"/>
+		</path>
+		<pathconvert pathsep=":" property="test.classpath" refid="classpath_jars" />	 
+	 </target>
+	 
+	<path id="classpath">
+		<pathelement location="${build}" />
+		<fileset dir="${lib}">
+			<include name="*.jar" />
+		</fileset>
+	</path>
+	 
+	<target name="clean">
+		<echo message="Inside clean"/>
+		<delete dir="${dist}"/>
+		<delete dir="${build}"/>		
+	</target>
+	
+	<target name="compile" depends="clean">
+		<echo message="Inside compile"/>
+		<mkdir dir="${build}"/>
+		<javac srcdir="${src}" destdir="${build}" debug="true" debuglevel="lines,vars,source">
+			<classpath>				
+				<fileset dir="${lib}">
+					<include name="*.jar"/>
+				</fileset>
+			</classpath>
+			<compilerarg value="-Xlint:deprecation"/>
+		</javac>
+	</target>
+	
+	<target name="build">
+		<echo message="Inside build"/>
+		<jar basedir="${build}" destfile="${dist}/AUPAutomation.jar">
+			<include name="**/**.class" />
+		</jar>
+	</target>
+	
+
+	<taskdef name="testng" classname="org.testng.TestNGAntTask" classpathref="classpath" />
+	
+	<target name="testng-execution" depends="compile">
+		<mkdir dir="${reports}" />
+		<testng outputdir="${reports}" classpathref="classpath" useDefaultListeners="true">
+			<xmlfileset dir="${config}" includes="testng.xml" />
+		</testng>
+	</target>
+	
+	<target name="run-single-test" 
+         description="run a specific test. Requires class.name property set to fully qualified name of test class">
+		<condition property="propsSpecified">
+			<and>
+				<isset property="class.name" />
+			</and>
+		</condition>
+		<fail unless="propsSpecified" 
+            message="class.name property not specified."/>
+		<copy todir="${tmp}" file="${testng.templates}/testfn.xml" overwrite="true">
+			<filterset>
+				<filter token="CLASS" value="${class.name}"/>
+			</filterset>
+		</copy>
+		<testng classpathref="classpath"
+           outputdir="${reports}/${DSTAMP}.${TSTAMP}-single-test-${class.name}"
+           verbose="2"
+           useDefaultListeners="true">
+			<xmlfileset dir="${tmp}" includes="testfn.xml" />
+		</testng>
+	</target>
+	
+	<target name="all" depends="clean,compile,build,testng-execution">
+		<echo message="Inside all"/>
+		<echo message="TODAY: ${TSTAMP}"/>
+	</target>
+	
+	
+	<target name="xslt" depends="all">
+                 
+		<xslt in="${reports}/testng-results.xml" style="${basedir}/testng-results.xsl" out="${reports}/testng-xslt/index.html" processor="SaxonLiaison">
+                        
+            <param expression="${reports}/testng-xslt/" name="testNgXslt.outputDir" />
+
+            <param expression="true" name="testNgXslt.sortTestCaseLinks" />
+
+            <param expression="FAIL,SKIP,PASS,CONF,BY_CLASS" name="testNgXslt.testDetailsFilter" />
+
+            <param expression="true" name="testNgXslt.showRuntimeTotals" />
+
+            <classpath refid="classpath"></classpath>
+        </xslt>
+    </target>
+	
+	
+	<!--<target name="install-jars" description="Install ANT optional jars">
+        <mkdir dir="${user.home}/.ant/lib"/>
+        <get dest="${user.home}/.ant/lib/mail.jar"       src="http://search.maven.org/remotecontent?filepath=javax/mail/mail/1.4.4/mail-1.4.4.jar"/>
+        <get dest="${user.home}/.ant/lib/activation.jar" src="http://search.maven.org/remotecontent?filepath=javax/activation/activation/1.1/activation-1.1.jar"/>
+    </target>-->
+	
+	<!--<path id="mail.path">
+		<pathelement location=" ${env.ANT_HOME}/lib/mail.jar"/>
+	</path>-->
+
+<!-- http://enitsys.sourceforge.net/ant-classloadertask/ -->
+	<!--<taskdef name="classloadertask"
+		classname="org.apache.tools.ant.taskdefs.ClassloaderTask" 
+		classpath=" ${env.ANT_HOME}/lib/ant-classloadertask.jar"/>
+		
+	<classloadertask classpathRef="mail.path" loader="thread"/> -->
+	
+	<target name="mail" >	
+		<mail mailhost="smtp.gmail.com" mailport="465" subject="Test build" user="kiran.akumar123@gmail.com" password="Hanibal@20$" ssl="yes">
+			<from address="kiran.akumar123@gmail.com"/>
+			<replyto address="kiran.akumar123@gmail.com"/>
+			<to address="kiran.akumar123@gmail.com"/>
+			<message>The  nightly build has completed</message>
+			<!--<attachments>
+				<fileset dir="${dist}">
+					<include name="**/*.jar"/>
+				</fileset>
+			</attachments>-->
+		</mail>
+		<!--<classpath refid="classpath"></classpath>-->
+	</target>
+</project>
