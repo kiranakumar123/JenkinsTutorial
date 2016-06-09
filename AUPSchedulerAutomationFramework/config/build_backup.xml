@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<project name="Hello World Project" basedir="." default="all">
+  
+<property file="build.properties"/>
+
+
+
+	   <property name="src.dir" location="src" />
+	   <property name="build.dir" location="build" />
+	   <property name="lib.dir" location="lib" />
+	   <property name="config.dir" location="config"/>
+	   <property name="jar.dir" location="jar"/>
+	   <property name="full-compile" value="true" />
+   <target name="setting" depends="presetting">
+   <echo> Inside setting </echo>
+   </target>
+
+  
+   <target name="presetting">
+   <echo>Inside presetting in site: ${site}</echo>
+   </target>
+   
+    <target name="prepresetting">
+   <echo>Inside ${ant.file}</echo>
+   </target>
+   
+	<target name="info" depends="setting,prepresetting">
+		<echo>Hello World - Welcome to Apache Ant!</echo>
+	</target>
+	
+	<target name="clean">
+		<delete>
+			<fileset dir="${build.dir}">
+				<include name="**/*.class"/>
+			</fileset>
+		</delete>
+	</target>
+<path id="java-classpath">
+	<fileset dir="${lib.dir}">
+		<include name="*.jar"/>
+	</fileset>
+	<pathelement path="${build.dir}"/>
+</path>
+	<target name="compile" depends="clean">
+	<mkdir dir="${build.dir}"/>
+		<javac srcdir="${src.dir}" destdir="${build.dir}">
+		<classpath refid="java-classpath"/>
+		</javac>
+	</target>
+	
+	<target name="jar" depends="compile">
+	<jar basedir="${build.dir}" destfile="${jar.dir}/test.jar">
+	 <manifest>
+      <attribute name = "Main-Class" value = "com.testing.again.HelloWorld"/>
+   </manifest>
+   </jar>
+   
+	</target>
+   <target name="all" depends="compile">
+   <echo> "Building all"</echo>
+   </target>
+   
+   
+   <target name="execute" depends="compile">
+   <java fork="true" failonerror="yes"  classname="com.testing.again.HelloWorld"/>
+<classpath refid="test.classpath"/>
+   </target>
+   <fileset dir="${src.dir}">
+   <include name="**/*.java"/>
+   </fileset>
+   <filelist id="config.files" dir="${config.dir}">
+   <file name="logger.properties"/>
+   </filelist>
+ 
+   <path id="test.classpath">
+  <pathelement location="${jar}/test.jar" />
+  </path>
+</project>
