@@ -1,4 +1,4 @@
-<project name="AUPSchedulerAutomation" basedir="." default="all">
+<project name="AUPSchedulerAutomation" basedir="./AUPSchedulerAutomationFramework" default="all">
 
 
 	<property environment="env" />
