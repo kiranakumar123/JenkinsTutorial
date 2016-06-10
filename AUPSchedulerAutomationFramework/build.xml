@@ -1,5 +1,6 @@
 <project name="AUPSchedulerAutomation" basedir="." default="all">
 
+
 	<property environment="env" />
 	
     <echo message="ANT_HOME is set to = ${env.ANT_HOME}"/>
@@ -14,7 +15,8 @@
 	<property name="testng.templates" location="config/testng.templates"/>
 	<property name="src" location="src"/>
 	<property name="tmp" location="tmp"/>
-	<property name="reports" location="${env.SELENIUM_REPORTS_HOME}/reports"/>
+	<property name="reports" location="${en.SELENIUM_REPORTS_HOME}/results"/>
+
 	<!--<property name="reports" location="reports"/>-->
 	
 	<property file="build.properties"/>
