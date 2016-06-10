@@ -8,6 +8,7 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
 <version>0.0.1-SNAPSHOT</version>
  <build>
     <plugins>
+
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.3</version>
