@@ -17,7 +17,7 @@
                 <parameter name="browser" value="Firefox" />
                 <parameter name="url" value="http://dl.dropbox.com/u/55228056/bmicalculator.html"/>
                 <classes>
-                        <class name="seleniumcookbook.examples.test.SeGridTest"></class>
+                        <class name="com.kriyari.selenium.testing.SeGridTest"></class>
                 </classes>
         </test>
 </suite>
