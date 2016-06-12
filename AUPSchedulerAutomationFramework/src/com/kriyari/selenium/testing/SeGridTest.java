@@ -113,6 +113,7 @@ driver = new RemoteWebDriver(new URL("http://104.199.155.110:4444/wd/hub"), caps
 	@AfterTest
 	public void afterTest() 
 	{
+
 	//Close the browser
 		driver.quit();
 		String verificationErrorString =  verificationErrors.toString();
