@@ -52,7 +52,7 @@ public class TestNGCustomListenerForScreenShots extends TestListenerAdapter
                         System.out.println("stack trace:");
 		}
 		Reporter.setEscapeHtml(false);
-		Reporter.log("Saved <a href=../../reports/screenshots/" + destFile + ">Screenshot</a>");
+		Reporter.log("Saved <a href=../../results/screenshots/" + destFile + ">Screenshot</a>");
 		Reporter.log("test log");
 		
 	}
