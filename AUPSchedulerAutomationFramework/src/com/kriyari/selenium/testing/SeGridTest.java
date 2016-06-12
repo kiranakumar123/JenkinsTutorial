@@ -14,12 +14,26 @@ import org.testng.annotations.Test;
 import org.testng.annotations.BeforeTest;
 import java.net.MalformedURLException;
 import java.net.URL;
+import org.testng.Reporter;
+import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
+import org.testng.Reporter;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Test;
+import com.kriyari.selenium.helper.SeleniumLogger;
+import com.kriyari.selenium.helper.TheSeleniumManager;
 
 public class SeGridTest
 {
 	WebDriver driver = null;
 	private StringBuffer verificationErrors = new StringBuffer();
-
+        private SeleniumLogger logger;
+        @BeforeSuite
+        public void beforeSuite()
+        {
+         //       driver=TheSeleniumManager.getSeleniumManager().getDriver("firefox");
+                logger=TheSeleniumManager.getSeleniumLogger("testSeleniumLogger");
+        }
 	//@Parameters({ "platform","browser","version", "url" })
 	@Parameters({ "platform","browser", "url" })
 	@BeforeTest(alwaysRun=true)
@@ -66,6 +80,9 @@ driver = new RemoteWebDriver(new URL("http://104.199.155.110:4444/wd/hub"), caps
 			assertEquals(bmi.getAttribute("value"),"24.4");
 			WebElement bmi_category = driver.findElement(By.name("bmi_category"));
 			assertEquals(bmi_category.getAttribute("value"),"Normal");
+			 Reporter.log("logging from testScreenShot.Should appear in index.html of testng-xslt reports");
+	                logger.error("Error from testScreenShot");
+        	        Assert.assertEquals(driver.getTitle(), "testing");
 		}
 		catch (Error e) 
 		{
