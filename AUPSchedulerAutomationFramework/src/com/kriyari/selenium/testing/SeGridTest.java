@@ -33,7 +33,12 @@ public class SeGridTest
         public void beforeSuite()
         {
          //       driver=TheSeleniumManager.getSeleniumManager().getDriver("firefox");
+String baseSeleniumDir = System.getenv("SELENIUM_HOME");
+                System.out.println("inside se grid selenium_home:"+baseSeleniumDir);
+String baseSeleniumDir = System.getenv("SELENIUM_REPORTS_HOME");
+                System.out.println("inside se grid selenium_reports_home:"+baseSeleniumDir);
                 logger=TheSeleniumManager.getSeleniumLogger("testSeleniumLogger");
+
         }
 	//@Parameters({ "platform","browser","version", "url" })
 	@Parameters({ "platform","browser", "url" })
