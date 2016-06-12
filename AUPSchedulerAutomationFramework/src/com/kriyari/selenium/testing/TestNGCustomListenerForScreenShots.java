@@ -32,15 +32,19 @@ public class TestNGCustomListenerForScreenShots extends TestListenerAdapter
 		// FileUtils.copyFile(file, new File("D:\\Webdriver\\failure.png"));
 		//String destDir = "D:\\apache-tomcat-9.0.0.M1\\webapps\\reports\\screenshots";
 		String destDir = "/var/www/html/results/screenshots";
+		System.out.println("Inside TestNGCustomListenerForScreenShots");
 		new File(destDir).mkdirs();
 		String destFile = dateFormat.format(new Date()) + ".png";
 
 		try
 		{
+
 			FileUtils.copyFile(scrFile, new File(destDir + "/" + destFile));
+			System.out.println("after copyFile");
 		} catch (IOException e)
 		{
 			e.printStackTrace();
+                        System.out.println("stack trace:"+e.printStrackTrace());
 		}
 		Reporter.setEscapeHtml(false);
 		Reporter.log("Saved <a href=../../reports/screenshots/" + destFile + ">Screenshot</a>");
