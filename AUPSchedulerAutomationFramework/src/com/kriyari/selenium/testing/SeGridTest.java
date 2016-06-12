@@ -3,6 +3,7 @@
 package com.kriyari.selenium.testing;
 
 
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.By;
@@ -78,6 +79,7 @@ String newbaseSeleniumDir = System.getenv("SELENIUM_REPORTS_HOME");
 		//caps.setVersion(version);
 //		driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), caps);		// Open the BMI Calculator Application
 //driver = new RemoteWebDriver(new URL("http://104.199.155.110:4444/wd/hub"), caps);
+System.out.println("Getting grid driver for :"+browser);
 driver=TheSeleniumManager.getSeleniumManager().getGridDriver(caps);
 //driver = new RemoteWebDriver(new URL("http://104.155.226.10:5555/wd/hub"), caps);
 		driver.get(url);
