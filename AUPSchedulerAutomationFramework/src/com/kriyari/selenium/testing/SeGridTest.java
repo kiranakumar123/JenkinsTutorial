@@ -23,7 +23,8 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 import com.kriyari.selenium.helper.SeleniumLogger;
 import com.kriyari.selenium.helper.TheSeleniumManager;
-
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 public class SeGridTest
 {
 	WebDriver driver = null;
@@ -33,6 +34,19 @@ public class SeGridTest
         public void beforeSuite()
         {
          //       driver=TheSeleniumManager.getSeleniumManager().getDriver("firefox");
+
+ InetAddress ip;
+        String hostname;
+        try {
+            ip = InetAddress.getLocalHost();
+            hostname = ip.getHostName();
+            System.out.println("Your current IP address : " + ip);
+            System.out.println("Your current Hostname : " + hostname);
+ 
+        } catch (UnknownHostException e) {
+ 
+            e.printStackTrace();
+        }
 String baseSeleniumDir = System.getenv("SELENIUM_HOME");
                 System.out.println("inside se grid selenium_home:"+baseSeleniumDir);
 String newbaseSeleniumDir = System.getenv("SELENIUM_REPORTS_HOME");
