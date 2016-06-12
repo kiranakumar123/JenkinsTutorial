@@ -102,7 +102,7 @@ driver = new RemoteWebDriver(new URL("http://104.199.155.110:4444/wd/hub"), caps
 			assertEquals(bmi_category.getAttribute("value"),"Normal");
 			 Reporter.log("logging from testScreenShot.Should appear in index.html of testng-xslt reports");
 	                logger.error("Error from testScreenShot");
-//        	        Assert.assertEquals(driver.getTitle(), "testing");
+        	        Assert.assertEquals(driver.getTitle(), "testing");
 		}
 		catch (Error e) 
 		{
