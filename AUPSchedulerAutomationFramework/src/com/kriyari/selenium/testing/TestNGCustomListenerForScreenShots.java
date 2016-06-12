@@ -44,7 +44,7 @@ public class TestNGCustomListenerForScreenShots extends TestListenerAdapter
 		} catch (IOException e)
 		{
 			e.printStackTrace();
-                        System.out.println("stack trace:"+e.printStrackTrace());
+                        System.out.println("stack trace:");
 		}
 		Reporter.setEscapeHtml(false);
 		Reporter.log("Saved <a href=../../reports/screenshots/" + destFile + ">Screenshot</a>");
