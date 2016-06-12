@@ -30,7 +30,8 @@ public class TestNGCustomListenerForScreenShots extends TestListenerAdapter
 		DateFormat dateFormat = new SimpleDateFormat("dd_MMM_yyyy__hh_mm_ssaa");
 		//String destDir = "D:\\Webdriver\\failure.png";
 		// FileUtils.copyFile(file, new File("D:\\Webdriver\\failure.png"));
-		String destDir = "D:\\apache-tomcat-9.0.0.M1\\webapps\\reports\\screenshots";
+		//String destDir = "D:\\apache-tomcat-9.0.0.M1\\webapps\\reports\\screenshots";
+		String destDir = "/var/www/html/results/screenshots";
 		new File(destDir).mkdirs();
 		String destFile = dateFormat.format(new Date()) + ".png";
 
