@@ -24,7 +24,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 //import com.thoughtworks.selenium.DefaultSelenium;
 //import com.thoughtworks.selenium.Selenium;
 
-public class SeleniumManager
+public class SeleniumManagerBackup
 {
 
 	// SeleniumServer seleniumServer=null;
@@ -173,7 +173,7 @@ public class SeleniumManager
 	
 	public static void main(String args[])
 	{
-		SeleniumManager manager = new SeleniumManager();
+		SeleniumManagerBackup manager = new SeleniumManagerBackup();
 		WebDriver driver = manager.getDriver("");
 		driver.get("http://www.google.com");
 		//driver = new FirefoxDriver();
