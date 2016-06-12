@@ -35,8 +35,8 @@ public class SeGridTest
          //       driver=TheSeleniumManager.getSeleniumManager().getDriver("firefox");
 String baseSeleniumDir = System.getenv("SELENIUM_HOME");
                 System.out.println("inside se grid selenium_home:"+baseSeleniumDir);
-String baseSeleniumDir = System.getenv("SELENIUM_REPORTS_HOME");
-                System.out.println("inside se grid selenium_reports_home:"+baseSeleniumDir);
+String newbaseSeleniumDir = System.getenv("SELENIUM_REPORTS_HOME");
+                System.out.println("inside se grid selenium_reports_home:"+newbaseSeleniumDir);
                 logger=TheSeleniumManager.getSeleniumLogger("testSeleniumLogger");
 
         }
