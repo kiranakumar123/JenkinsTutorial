@@ -18,7 +18,7 @@
 	<property name="testng.templates" location="config/testng.templates"/>
 	<property name="src" location="src"/>
 	<property name="tmp" location="tmp"/>
-	<property name="reports" location="${env.SELENIUM_REPORTS_HOME}/results"/>
+	<property name="reports" location="/var/www/html/results"/>
 
 	<!--<property name="reports" location="reports"/>-->
 	
