@@ -23,7 +23,9 @@ public class TestNGCustomListenerForScreenShots extends TestListenerAdapter
 	@Override
 	public void onTestFailure(ITestResult tr)
 	{
+                 System.out.println("Before selenium manager");
 		WebDriver driver = TheSeleniumManager.getSeleniumManager().getSelenium();
+                System.out.println("After selenium manager");
 		//SeleniumLogger logger = TheSeleniumManager.getSeleniumLogger();
 		
 		File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
