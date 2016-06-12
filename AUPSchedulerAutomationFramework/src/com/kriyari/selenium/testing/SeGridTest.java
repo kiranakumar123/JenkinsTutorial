@@ -77,7 +77,8 @@ String newbaseSeleniumDir = System.getenv("SELENIUM_REPORTS_HOME");
 		//Version
 		//caps.setVersion(version);
 //		driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), caps);		// Open the BMI Calculator Application
-driver = new RemoteWebDriver(new URL("http://104.199.155.110:4444/wd/hub"), caps);
+//driver = new RemoteWebDriver(new URL("http://104.199.155.110:4444/wd/hub"), caps);
+driver=TheSeleniumManager.getSeleniumManager().getGridDriver(caps);
 //driver = new RemoteWebDriver(new URL("http://104.155.226.10:5555/wd/hub"), caps);
 		driver.get(url);
 	}

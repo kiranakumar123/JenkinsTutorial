@@ -16,6 +16,7 @@ import org.testng.TestListenerAdapter;
 
 import com.kriyari.selenium.helper.SeleniumLogger;
 import com.kriyari.selenium.helper.TheSeleniumManager;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class TestNGCustomListenerForScreenShots extends TestListenerAdapter
 {
@@ -24,7 +25,9 @@ public class TestNGCustomListenerForScreenShots extends TestListenerAdapter
 	public void onTestFailure(ITestResult tr)
 	{
                  System.out.println("Before selenium manager");
-		WebDriver driver = TheSeleniumManager.getSeleniumManager().getSelenium();
+//		WebDriver driver = TheSeleniumManager.getSeleniumManager().getSelenium();
+		DesiredCapabilities caps = new DesiredCapabilities();
+		 WebDriver driver = TheSeleniumManager.getSeleniumManager().getGridDriver(caps);
                 System.out.println("After selenium manager");
 		//SeleniumLogger logger = TheSeleniumManager.getSeleniumLogger();
 		

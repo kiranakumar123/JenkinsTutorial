@@ -6,19 +6,12 @@ import static com.kriyari.selenium.helper.SeleniumConstants.SELENIUM_SERVER_PORT
 import static com.kriyari.selenium.helper.SeleniumConstants.SELENIUM_SERVER_SHUTDOWN_COMMAND;
 import static com.kriyari.selenium.helper.SeleniumConstants.IE_DRIVER_LOCATION;
 import static com.kriyari.selenium.helper.SeleniumConstants.CHROME_DRIVER_LOCATION;
-import static com.kriyari.selenium.helper.SeleniumConstants.CHROME_BROWSER;
-import static com.kriyari.selenium.helper.SeleniumConstants.INTERNET_EXPLORER_BROWSER;
-import static com.kriyari.selenium.helper.SeleniumConstants.FIREFOX_BROWSER;
-import static com.kriyari.selenium.helper.SeleniumConstants.HTML_UNIT_DRIVER;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
-import java.util.HashMap;
-import java.util.Map;
 
 //import org.openqa.selenium.server.SeleniumServer;
 import org.openqa.selenium.WebDriver;
@@ -26,10 +19,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-
 //import com.thoughtworks.selenium.DefaultSelenium;
 //import com.thoughtworks.selenium.Selenium;
 
@@ -39,7 +30,7 @@ public class SeleniumManager
 	// SeleniumServer seleniumServer=null;
 	WebDriver driver = null;
 	private String browser = "";
-	private static Map<String, WebDriver> drivers= new HashMap<String, WebDriver>();
+
 	public void start(String baseURL) throws IOException
 	{
 
@@ -107,77 +98,14 @@ public class SeleniumManager
 		return driver;
 	}
 
-	 public WebDriver getGridDriver(DesiredCapabilities caps)
-     {
-            try
-			{
-			
-				driver = drivers.get("GRID_DRIVER");
-				if(driver == null)
-				{
-					
-					driver = new RemoteWebDriver(new URL("http://104.199.155.110:4444/wd/hub"), caps);
-					drivers.put("GRID_DRIVER", driver);
-				}
-			} catch (MalformedURLException e)
-			{
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-            
-            return driver;
-     }
-	 
-	public WebDriver getDriver(String browser)
-	{	
+        public WebDriver getGridDriver(DesiredCapabilities caps)
+	{
+		return new RemoteWebDriver(new URL("http://104.199.155.110:4444/wd/hub"), caps);
+	}
 
-		switch (browser) 
-		{
-			case(FIREFOX_BROWSER):
-				driver = drivers.get(FIREFOX_BROWSER);
-				if(driver == null)
-				{
-					driver = new FirefoxDriver();
-					drivers.put(FIREFOX_BROWSER, driver);
-				}
-				break;
-			case(CHROME_BROWSER):
-				driver = drivers.get(CHROME_BROWSER);
-				if(driver == null)
-				{
-					System.setProperty("webdriver.chrome.driver", CHROME_DRIVER_LOCATION);
-					driver = new ChromeDriver();
-					drivers.put(CHROME_BROWSER, driver);
-				}
-				break;
-			case(INTERNET_EXPLORER_BROWSER):
-				driver = drivers.get(INTERNET_EXPLORER_BROWSER);
-				if(driver == null)
-				{
-					System.setProperty("webdriver.ie.driver", IE_DRIVER_LOCATION);
-					driver = new InternetExplorerDriver();
-					drivers.put(INTERNET_EXPLORER_BROWSER, driver);
-				}
-				break;
-			case(HTML_UNIT_DRIVER):
-				driver = drivers.get(HTML_UNIT_DRIVER);
-				if(driver == null)
-				{
-					
-					driver = new HtmlUnitDriver();
-					drivers.put(HTML_UNIT_DRIVER, driver);
-				}
-				break;			
-			//If browser doesn't matches then default to firefox driver
-			default:
-				driver = new FirefoxDriver();
-				drivers.put(FIREFOX_BROWSER, driver);			
-		
-		}
-		
-		return driver;
-		
-		/*if (!this.browser.equalsIgnoreCase(browser))
+	public WebDriver getDriver(String browser)
+	{
+		if (!this.browser.equalsIgnoreCase(browser))
 		{
 
 			if (driver != null)
@@ -230,8 +158,7 @@ public class SeleniumManager
 			driver = new FirefoxDriver();
 		}
 
-		drivers.put(browser, driver);
-		return driver;*/		
+		return driver;
 
 	}
 
@@ -244,44 +171,6 @@ public class SeleniumManager
 
 	}
 	
-	private static void stop(String browser)
-	{
-		/*if (driver != null)
-		{
-			driver.close();
-		}*/
-		for(String key:drivers.keySet())
-		{
-			if(key.contains(browser))
-			{
-				drivers.get(key).close();
-				drivers.get(key).quit();
-			}
-		}
-
-	}
-	
-	public static void closeAllDrivers()
-	{
-		closeFirefoxDrivers();
-		closeIEDrivers();
-		closeChromeDrivers();
-	}
-	
-	public static void closeFirefoxDrivers()
-	{
-		stop("firefox");
-	}
-	
-	public static void closeIEDrivers()
-	{
-		stop("InternetExplorer");
-	}
-	
-	public static void closeChromeDrivers()
-	{
-		stop("firefox");
-	}
 	public static void main(String args[])
 	{
 		SeleniumManager manager = new SeleniumManager();
@@ -293,4 +182,3 @@ public class SeleniumManager
 	}
 
 }
-
