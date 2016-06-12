@@ -28,6 +28,8 @@ public class SeleniumLogger {
 		String baseSeleniumDir = System.getenv("SELENIUM_HOME");
 		System.out.println("selenium_home:"+baseSeleniumDir);
 		log4jPropertyFile = baseSeleniumDir +File.separator + "config" + File.separator + "logger.properties";
+                baseSeleniumDir = File.separator + "home" + File.separator + "lkiran_akumar123" + File.separator + "git_repo" + File.separator + "JenkinsTutorial" + File.separator + "AUPSchedulerAutomationFramework"+File.separator;
+                log4jPropertyFile = baseSeleniumDir +File.separator + "config" + File.separator + "logger.properties";
 		System.setProperty("selenium.home", baseSeleniumDir);	
 		PropertyConfigurator.configureAndWatch(log4jPropertyFile);		
 	}
