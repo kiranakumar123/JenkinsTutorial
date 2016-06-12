@@ -98,10 +98,10 @@ public class SeleniumManagerBackup
 		return driver;
 	}
 
-        public WebDriver getGridDriver(DesiredCapabilities caps)
+/*        public WebDriver getGridDriver(DesiredCapabilities caps)
 	{
 		return new RemoteWebDriver(new URL("http://104.199.155.110:4444/wd/hub"), caps);
-	}
+	}*/
 
 	public WebDriver getDriver(String browser)
 	{
