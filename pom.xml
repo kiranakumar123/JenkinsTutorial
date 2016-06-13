@@ -83,6 +83,12 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
    </pluginRepository>
 
 </pluginRepositories> 
+<repositories>
+    <repository>
+      <id>java.net</id>
+      <url>https://maven.java.net/content/repositories/public/</url>
+    </repository>
+ </repositories>
 
 <!--END-->
 <dependencies>
@@ -97,10 +103,5 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <version>6.8</version>
   <scope>test</scope>
 </dependency>
-<repositories>
-    <repository>
-        <id>java-net</id>
-        <url>http://download.java.net/maven/2</url>
-    </repository>
 </dependencies>
 </project>
