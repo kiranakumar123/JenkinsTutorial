@@ -33,13 +33,13 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
   </build>
 
 <!--START-->
-<reporting>
+<!--<reporting>
 
-   <plugins>
+   <plugins>-->
 
 <!-- TestNG-xslt related configuration. -->
 
-    <plugin>
+    <!--<plugin>
 
         <groupId>org.reportyng</groupId>
 
@@ -47,13 +47,13 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
         <version>1.2</version>
 
-       <configuration>
+       <configuration>-->
 
 
 <!-- Output directory for the testng xslt report -->
 
 
-         <outputdir>/target/testng-xslt-report</outputdir>
+<!--         <outputdir>/target/testng-xslt-report</outputdir>
 
          <surefireReportDirectory>/target/surefire-reports/testng-junit-results</surefireReportDirectory>
 
@@ -88,7 +88,7 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
       <id>java.net</id>
       <url>https://maven.java.net/content/repositories/public/</url>
     </repository>
- </repositories>
+ </repositories>-->
 
 <!--END-->
 <dependencies>
