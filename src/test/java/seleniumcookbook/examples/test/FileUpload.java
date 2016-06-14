@@ -42,7 +42,7 @@ public class FileUpload
 {
 	WebDriver driver = null;
 	private StringBuffer verificationErrors = new StringBuffer();
-        private SeleniumLogger logger;
+        //private SeleniumLogger logger;
         @BeforeSuite
         public void beforeSuite()
         {
