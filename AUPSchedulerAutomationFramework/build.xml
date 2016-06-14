@@ -1,12 +1,18 @@
-<project name="AUPSchedulerAutomation" basedir="." default="all">
+<project name="AUPSchedulerAutomation" basedir="../AUPSchedulerAutomationFramework" default="all">
+
+
+
+
+
 
 
 	<property environment="env" />
 	
     <echo message="ANT_HOME is set to = ${env.ANT_HOME}"/>
 	<echo message="JAVA_HOME is set to = ${env.JAVA_HOME}"/>
-	<echo message="SELENIUM_REPORTS_HOME is set to = ${env.SELENIUM_REPORTS_HOME}"/>
-	
+	<echo message="SELENIUM_REPORTS_HOME is set to = ${SELENIUM_REPORTS_HOME}"/>
+        <echo message="SELENIUM_HOME is set to = ${SELENIUM_HOME}"/>
+        <echo message="PATH is set to ${PATH}"/>	
 	<property name="src" location="src"/>
 	<property name="dist" location="dist"/>
 	<property name="lib" location="lib"/>
@@ -15,7 +21,7 @@
 	<property name="testng.templates" location="config/testng.templates"/>
 	<property name="src" location="src"/>
 	<property name="tmp" location="tmp"/>
-	<property name="reports" location="${en.SELENIUM_REPORTS_HOME}/results"/>
+	<property name="reports" location="/var/www/html/results"/>
 
 	<!--<property name="reports" location="reports"/>-->
 	
@@ -48,7 +54,7 @@
 	<target name="clean">
 		<echo message="Inside clean"/>
 		<delete dir="${dist}"/>
-		<delete dir="${build}"/>		
+
 	</target>
 	
 	<target name="compile" depends="clean">
@@ -125,7 +131,9 @@
         </xslt>
     </target>
 	
-	
+	<target name="test">
+         <echo message="INside test"/>
+         </target>	
 	<!--<target name="install-jars" description="Install ANT optional jars">
         <mkdir dir="${user.home}/.ant/lib"/>
         <get dest="${user.home}/.ant/lib/mail.jar"       src="http://search.maven.org/remotecontent?filepath=javax/mail/mail/1.4.4/mail-1.4.4.jar"/>

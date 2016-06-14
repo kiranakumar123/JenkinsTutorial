@@ -3,11 +3,14 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 <modelVersion>4.0.0</modelVersion>
+
 <groupId>SeleniumCookbook</groupId>
 <artifactId>SeleniumCookbook</artifactId>
 <version>0.0.1-SNAPSHOT</version>
  <build>
     <plugins>
+
+
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.3</version>
@@ -29,6 +32,66 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
       </plugin>
     </plugins>
   </build>
+
+<!--START-->
+<!--<reporting>
+
+   <plugins>-->
+
+<!-- TestNG-xslt related configuration. -->
+
+    <!--<plugin>
+
+        <groupId>org.reportyng</groupId>
+
+        <artifactId>reporty-ng</artifactId>
+
+        <version>1.2</version>
+
+       <configuration>-->
+
+
+<!-- Output directory for the testng xslt report -->
+
+
+<!--         <outputdir>/target/testng-xslt-report</outputdir>
+
+         <surefireReportDirectory>/target/surefire-reports/testng-junit-results</surefireReportDirectory>
+
+         <sorttestcaselinks>true</sorttestcaselinks>
+
+         <testdetailsfilter>FAIL,SKIP,PASS,CONF,BY_CLASS</testdetailsfilter>
+
+         <showruntimetotals>true</showruntimetotals>
+
+       </configuration>
+
+    </plugin>
+
+  </plugins>
+
+</reporting>
+
+
+<pluginRepositories>
+
+   <pluginRepository>
+
+     <id>reporty-ng</id>
+
+     <url>https://github.com/cosminaru/reporty-ng/raw/master/dist/maven</url>
+
+   </pluginRepository>
+
+</pluginRepositories> 
+<repositories>
+    <repository>
+      <id>java.net</id>
+      <url>https://maven.java.net/content/repositories/public/</url>
+    </repository>
+ </repositories>-->
+
+<!--END-->
 <dependencies>
 <dependency>
 <groupId>org.seleniumhq.selenium</groupId>
@@ -41,6 +104,5 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <version>6.8</version>
   <scope>test</scope>
 </dependency>
-
 </dependencies>
 </project>
