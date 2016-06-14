@@ -21,21 +21,30 @@
                 </classes>
         </test>-->
 
-<test name="testFF">
-           <parameter name="platform" value="Linux" />
+<!--<test name="testFF">
+           <parameter name="platform" value="Windows" />
                 <parameter name="browser" value="Firefox" />
                 <parameter name="url" value="http://dl.dropbox.com/u/55228056/bmicalculator.html"/>
                 <classes>
                         <class name="com.kriyari.selenium.testing.SeGridTest"></class>
                 </classes>
-        </test>
+        </test>-->
 
-<test name="testIE">
+<!--<test name="testIE">
            <parameter name="platform" value="Windows" />
                 <parameter name="browser" value="Internet Explorer" />
                 <parameter name="url" value="http://dl.dropbox.com/u/55228056/bmicalculator.html"/>
                 <classes>
                         <class name="com.kriyari.selenium.testing.SeGridTest"></class>
+                </classes>
+        </test>-->
+
+<test name="testFF">
+           <parameter name="platform" value="Windows" />
+                <parameter name="browser" value="Firefox" />
+                <parameter name="url" value="http://www.megafileupload.com"/>
+                <classes>
+                        <class name="com.kriyari.selenium.testing.FileUpload"></class>
                 </classes>
         </test>
 </suite>
