@@ -1,6 +1,6 @@
 //package com.testing.roadToAutomation;
-//package seleniumcookbook.examples.test;
-package com.kriyari.selenium.testing;
+package seleniumcookbook.examples.test;
+//package com.kriyari.selenium.testing;
 
 
 
@@ -22,8 +22,8 @@ import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
-import com.kriyari.selenium.helper.SeleniumLogger;
-import com.kriyari.selenium.helper.TheSeleniumManager;
+//import com.kriyari.selenium.helper.SeleniumLogger;
+//import com.kriyari.selenium.helper.TheSeleniumManager;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
@@ -92,7 +92,8 @@ String newbaseSeleniumDir = System.getenv("SELENIUM_REPORTS_HOME");
 //		driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), caps);		// Open the BMI Calculator Application
 //driver = new RemoteWebDriver(new URL("http://104.199.155.110:4444/wd/hub"), caps);
 System.out.println("Getting grid driver for :"+browser);
-driver=TheSeleniumManager.getSeleniumManager().getGridDriver(caps);
+//driver=TheSeleniumManager.getSeleniumManager().getGridDriver(caps);
+driver = new FirefoxDriver();
 //driver = new RemoteWebDriver(new URL("http://104.155.226.10:5555/wd/hub"), caps);
 		driver.get(url);
 	}
