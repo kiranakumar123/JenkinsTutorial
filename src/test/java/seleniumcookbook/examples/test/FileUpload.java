@@ -1,6 +1,6 @@
 //package com.testing.roadToAutomation;
-package seleniumcookbook.examples.test;
-//package com.kriyari.selenium.testing;
+//package seleniumcookbook.examples.test;
+package com.kriyari.selenium.testing;
 
 
 
@@ -22,8 +22,8 @@ import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
-//import com.kriyari.selenium.helper.SeleniumLogger;
-//import com.kriyari.selenium.helper.TheSeleniumManager;
+import com.kriyari.selenium.helper.SeleniumLogger;
+import com.kriyari.selenium.helper.TheSeleniumManager;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
@@ -42,13 +42,13 @@ public class FileUpload
 {
 	WebDriver driver = null;
 	private StringBuffer verificationErrors = new StringBuffer();
-        //private SeleniumLogger logger;
+        private SeleniumLogger logger;
         @BeforeSuite
         public void beforeSuite()
         {
          //       driver=TheSeleniumManager.getSeleniumManager().getDriver("firefox");
 
- /*InetAddress ip;
+ InetAddress ip;
         String hostname;
         try {
             ip = InetAddress.getLocalHost();
@@ -65,7 +65,6 @@ String baseSeleniumDir = System.getenv("SELENIUM_HOME");
 String newbaseSeleniumDir = System.getenv("SELENIUM_REPORTS_HOME");
                 System.out.println("inside se grid selenium_reports_home:"+newbaseSeleniumDir);
 //                logger=TheSeleniumManager.getSeleniumLogger("testSeleniumLogger");
-*/
 
         }
 	//@Parameters({ "platform","browser","version", "url" })
@@ -91,9 +90,9 @@ String newbaseSeleniumDir = System.getenv("SELENIUM_REPORTS_HOME");
 		//Version
 		//caps.setVersion(version);
 //		driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), caps);		// Open the BMI Calculator Application
-driver = new RemoteWebDriver(new URL("http://104.199.155.110:4444/wd/hub"), caps);
+//driver = new RemoteWebDriver(new URL("http://104.199.155.110:4444/wd/hub"), caps);
 System.out.println("Getting grid driver for :"+browser);
-//driver=TheSeleniumManager.getSeleniumManager().getGridDriver(caps);
+driver=TheSeleniumManager.getSeleniumManager().getGridDriver(caps);
 //driver = new RemoteWebDriver(new URL("http://104.155.226.10:5555/wd/hub"), caps);
 		driver.get(url);
 	}
@@ -142,9 +141,13 @@ System.out.println("Getting grid driver for :"+browser);
 			//screen.type("C:\\Users\\kappa.ORADEV\\Desktop\\test.txt");
 			//screen.click("D:\\WebDriverSikuliHue.sikuli\\1455702530634.png");
 
-        	screen.click("/home/kiran_akumar123/git_repo/JenkinsTutorial/AUPSchedulerAutomationFramework/config/sikuli/1455702447965.png");
+//        	screen.click("/home/kiran_akumar123/git_repo/JenkinsTutorial/AUPSchedulerAutomationFramework/config/sikuli/1455702447965.png");
+  //              screen.type("/home/kiran_akumar123/git_repo/JenkinsTutorial/AUPSchedulerAutomationFramework/config/sikuli/test.txt");
+    //            screen.click("/home/kiran_akumar123/git_repo/JenkinsTutorial/AUPSchedulerAutomationFramework/config/sikuli/1455702530634.png");
+
+screen.click("/home/kiran_akumar123/git_repo/JenkinsTutorial/AUPSchedulerAutomationFramework/config/newsikuli/1465981615234.png");
                 screen.type("/home/kiran_akumar123/git_repo/JenkinsTutorial/AUPSchedulerAutomationFramework/config/sikuli/test.txt");
-                screen.click("/home/kiran_akumar123/git_repo/JenkinsTutorial/AUPSchedulerAutomationFramework/config/sikuli/1455702530634.png");
+                screen.click("/home/kiran_akumar123/git_repo/JenkinsTutorial/AUPSchedulerAutomationFramework/config/newsikuli/1465981710336.png");
                         
 		} catch (FindFailed e) {
 			// TODO Auto-generated catch block
