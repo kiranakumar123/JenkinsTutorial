@@ -141,9 +141,13 @@ driver=TheSeleniumManager.getSeleniumManager().getGridDriver(caps);
 			//screen.type("C:\\Users\\kappa.ORADEV\\Desktop\\test.txt");
 			//screen.click("D:\\WebDriverSikuliHue.sikuli\\1455702530634.png");
 
-        	screen.click("/home/kiran_akumar123/git_repo/JenkinsTutorial/AUPSchedulerAutomationFramework/config/sikuli/1455702447965.png");
+//        	screen.click("/home/kiran_akumar123/git_repo/JenkinsTutorial/AUPSchedulerAutomationFramework/config/sikuli/1455702447965.png");
+  //              screen.type("/home/kiran_akumar123/git_repo/JenkinsTutorial/AUPSchedulerAutomationFramework/config/sikuli/test.txt");
+    //            screen.click("/home/kiran_akumar123/git_repo/JenkinsTutorial/AUPSchedulerAutomationFramework/config/sikuli/1455702530634.png");
+
+screen.click("/home/kiran_akumar123/git_repo/JenkinsTutorial/AUPSchedulerAutomationFramework/config/newsikuli/1465981615234.png");
                 screen.type("/home/kiran_akumar123/git_repo/JenkinsTutorial/AUPSchedulerAutomationFramework/config/sikuli/test.txt");
-                screen.click("/home/kiran_akumar123/git_repo/JenkinsTutorial/AUPSchedulerAutomationFramework/config/sikuli/1455702530634.png");
+                screen.click("/home/kiran_akumar123/git_repo/JenkinsTutorial/AUPSchedulerAutomationFramework/config/newsikuli/1465981710336.png");
                         
 		} catch (FindFailed e) {
 			// TODO Auto-generated catch block
